@@ -15,7 +15,7 @@ function zlkbcodepayqq_config()
 {
     require_once __DIR__ ."/class/zlkbcodepay/zlkbcodepay.config.php";
     $config = new zlkbcodepay_config();
-    return $config->get_configuration();
+    return $config->get_configuration(3);
 }
 
 function zlkbcodepayqq_link($params)

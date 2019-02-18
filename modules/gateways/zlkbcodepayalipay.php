@@ -15,7 +15,7 @@ function zlkbcodepayalipay_config()
 {
     require_once __DIR__ ."/class/zlkbcodepay/zlkbcodepay.config.php";
     $config = new zlkbcodepay_config();
-    return $config->get_configuration();
+    return $config->get_configuration(2);
 }
 
 function zlkbcodepayalipay_link($params)
