@@ -43,7 +43,7 @@ class zlkbcodepay_link
 		}
 		
 		//API请求,创建订单
-		$params = array(
+		$apiparams = array(
 			'paymethod'=>$paymethod,
 			'orderid'=>$params['invoiceid'],
 			'subject'=>"Billing"."-".$params['invoiceid'],
@@ -58,7 +58,7 @@ class zlkbcodepay_link
 			'overtime'=>$params['overtime'], //超时时间
 		);
 		$zlkbcodepay = new zlkbcodepay();
-		$result = $zlkbcodepay->pay($payconfig,$params);
+		$result = $zlkbcodepay->pay($payconfig,$apiparams);
 		if(!empty($result)){
 			if($result['code']!="1"){
 				return $result['msg'];
@@ -73,8 +73,8 @@ class zlkbcodepay_link
 				<script>
 					//3秒后自动跳转
 					setTimeout(function(){
-						location.href = {$qr_url};
-					},3000);
+						location.href = "{$qr_url}";
+					},1000);
 				</script>
 				<a href= "{$qr_url}" ><img src="'.$image_url.'" style="width:120px;"></a>';
 				$html = str_replace('{$qr_url}',$result['data']['payurl'],$html_tpl);
